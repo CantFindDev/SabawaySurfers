@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     {
          if (ActiveSections.Count > 0)
          {
-                if (ActiveSections.Count > MaxSectionCount * 2)
+                if (ActiveSections.Count > MaxSectionCount * 2) 
                 {
                     Destroy(ActiveSections.Dequeue());
                 }
