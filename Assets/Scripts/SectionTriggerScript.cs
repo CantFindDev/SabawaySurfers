@@ -17,11 +17,17 @@ public class SectionTriggerScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            var obj = Instantiate(SectionPrefab,
-                ParentSection.position + new Vector3(0, 0, ParentSection.GetChild(0).transform.localScale.x * 2),
-                ParentSection.rotation);
-            obj.name = SectionPrefab.gameObject.name + " " + GameManager.Instance.ActiveSections.Count;
-        GameManager.Instance.ActiveSections.Enqueue(obj);
+            SpawnSection();
         }
+    }
+    
+    
+    public void SpawnSection()
+    {
+        var obj = Instantiate(SectionPrefab,
+            ParentSection.position + new Vector3(0, 0, ParentSection.GetChild(0).transform.localScale.x * 2),
+            ParentSection.rotation);
+        obj.name = "Section " + GameManager.Instance.ActiveSections.Count;
+        GameManager.Instance.ActiveSections.Enqueue(obj);
     }
 }
