@@ -15,7 +15,7 @@ public class SectionTriggerScript : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && other.gameObject.GetComponent<PlayerController>().isServer)
         {
             SpawnSection();
         }
@@ -29,5 +29,6 @@ public class SectionTriggerScript : MonoBehaviour
             ParentSection.rotation);
         obj.name = "Section " + GameManager.Instance.ActiveSections.Count;
         GameManager.Instance.ActiveSections.Enqueue(obj);
+        Destroy(gameObject);
     }
 }

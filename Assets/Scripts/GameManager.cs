@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using PurrNet;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -26,9 +28,14 @@ public class GameManager : MonoBehaviour
    public Queue<GameObject> ActiveSections = new Queue<GameObject>();
    
    public Transform IdealCameraPosition, BeanBestView;
+   public GameObject PlayerPrefab;
+   public GameObject PlayerLanePrefab;
+   public List<GameObject> ActivePlayers = new List<GameObject>();
+   public List<GameObject> PlayerLanes = new List<GameObject>();
 
    private void Update()
     {
+        if (!GameStarted) StartGame();
          if (ActiveSections.Count > 0)
          {
                 if (ActiveSections.Count > MaxSectionCount * 2) 
@@ -37,22 +44,12 @@ public class GameManager : MonoBehaviour
                 }
          }
     }
-
-    private void Start()
-    {
-        StartGame();
-    }
-
+   
     public void StartGame()
     {
-        Camera.main.transform.DOMove(BeanBestView.position,1f).SetEase(Ease.InSine).onComplete += () =>
-        {
-            Camera.main.transform.DORotate(IdealCameraPosition.rotation.eulerAngles,.5f).SetEase(Ease.InOutSine);
-            Camera.main.transform.DOMove(IdealCameraPosition.position,1f).SetEase(Ease.InOutSine).onComplete += () =>
-            {
-                GameStarted = true;
-            };
-        };
+        GameStarted = ActivePlayers.Count == 2;
+        QualitySettings.vSyncCount = 0; // Set vSyncCount to 0 so that using .targetFrameRate is enabled.
+        Application.targetFrameRate = 60;
     }
    
 }

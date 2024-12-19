@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 3751737744625548367}
   - component: {fileID: 3295266514117470678}
   - component: {fileID: 1812248648168760008}
+  - component: {fileID: -1202223355437616702}
+  - component: {fileID: 2693825217961107303}
+  - component: {fileID: 9077865295801521702}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -73,19 +76,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81027492786521714}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ffa94afa9ecb1468f829b291606c238d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _networkRules: {fileID: 0}
+  _visitiblityRules: {fileID: 0}
   CurrentPlayerLane: 1
   PlayerMoveDuration: 0.2
   PlayerJumpHeight: 8
   PlayerFallMultiplier: 2.5
-  PlayerPositions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  PlayerPositions: []
 --- !u!65 &3295266514117470678
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -105,8 +107,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.79831547, y: 0.31978512, z: 1}
-  m_Center: {x: -0.01277712, y: 0.9887767, z: 0}
+  m_Size: {x: 0.2348484, y: 0.23205024, z: 0.22130609}
+  m_Center: {x: -0.0020875856, y: 0.9758401, z: 0.012369946}
 --- !u!114 &1812248648168760008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +139,66 @@ MonoBehaviour:
   m_DefaultActionMap: PlayerInput
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-1202223355437616702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81027492786521714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817fe5016bd0a2a49a95b6eb338bb132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkRules: {fileID: 0}
+  _visitiblityRules: {fileID: 0}
+  _syncPosition: 1
+  _syncRotation: 1
+  _syncScale: 1
+  _syncParent: 1
+  _interpolateSettings: 7
+  _ownerAuth: 1
+  _sendIntervalInTicks: 0
+  _tolerances:
+    positionTolerance: 0.1
+    rotationAngleTolerance: 1
+    scaleTolerance: 0.05
+--- !u!114 &2693825217961107303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81027492786521714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d589309a8b0b45f44a0ddd1e2e82017a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkRules: {fileID: 0}
+  _visitiblityRules: {fileID: 0}
+  _guid: 63658e759604099429f1f9ca22b6e1ab
+--- !u!114 &9077865295801521702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81027492786521714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39d5e4b97b1615f4aae984a3d5f4235f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _networkRules: {fileID: 0}
+  _visitiblityRules: {fileID: 0}
+  _toActivate:
+  - {fileID: 6490599093126736052}
+  _toDeactivate: []
+  _toEnable:
+  - {fileID: 3751737744625548367}
+  _toDisable: []
 --- !u!1 &212975226691020586
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,7 +420,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2356197798647775546
 Transform:
   m_ObjectHideFlags: 0
@@ -367,13 +429,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6490599093126736052}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.99999934, z: -0, w: 0.0011716993}
-  m_LocalPosition: {x: -0.01, y: 2.6, z: 2.93}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.46, z: -8.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 601452984488607898}
-  m_LocalEulerAnglesHint: {x: 0, y: 179.866, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &5462415020272483136
 Camera:
   m_ObjectHideFlags: 0

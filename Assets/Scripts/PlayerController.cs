@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 using DG.Tweening;
+using PurrNet;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : NetworkBehaviour
 {
     [SerializeField] private int CurrentPlayerLane = 1;
     [SerializeField] private float PlayerMoveDuration = .2f;
@@ -19,8 +21,8 @@ public class PlayerController : MonoBehaviour
     private InputAction TurnAction;
     private InputAction JumpAction;
     private InputAction SlideAction;
-    
-    public Transform[] PlayerPositions;
+
+    public List<Transform> PlayerPositions = new List<Transform>();
 
     private Rigidbody RB;
 
@@ -43,20 +45,19 @@ public class PlayerController : MonoBehaviour
     
     public void SwichPlayerLane(int LaneDirection)
     {
-        if (!GameManager.Instance.GameStarted) return;
+        if (!IsAvaliableToMove()) return;
         CurrentPlayerLane = Mathf.Clamp(CurrentPlayerLane + LaneDirection, 0, 2);
         transform.DOMoveX(PlayerPositions[CurrentPlayerLane].position.x,PlayerMoveDuration).SetEase(Ease.InSine);
     }
 
     public void PlayerJump()
     {
-        if (IsGrounded && GameManager.Instance.GameStarted) RB.AddForce(Vector3.up * PlayerJumpHeight, ForceMode.VelocityChange);
+        if (IsGrounded && IsAvaliableToMove()) RB.AddForce(Vector3.up * PlayerJumpHeight, ForceMode.VelocityChange);
     }
 
     public void PlayerSlide()
     {
-        if (!IsGrounded && GameManager.Instance.GameStarted) RB.AddForce(Vector3.down * PlayerJumpHeight, ForceMode.VelocityChange);
-        
+        if (!IsGrounded && IsAvaliableToMove()) RB.AddForce(Vector3.down * PlayerJumpHeight, ForceMode.VelocityChange);
     }
     
     public void OnCollisionEnter(Collision other)
@@ -73,6 +74,11 @@ public class PlayerController : MonoBehaviour
         {
             IsGrounded = false;
         }
+    }
+
+    private bool IsAvaliableToMove()
+    {
+        return GameManager.Instance.GameStarted;
     }
 
     private void OnEnable()
