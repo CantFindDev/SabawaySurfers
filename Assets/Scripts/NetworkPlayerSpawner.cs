@@ -9,22 +9,22 @@ public class NetworkPlayerSpawner : PurrMonoBehaviour
     GameManager gm;
     private PlayerID ClientID;
     private PurrMonoBehaviour _purrMonoBehaviourImplementation;
-
+    
     public override void Subscribe(NetworkManager manager, bool asServer)
     {
         if (asServer && manager.TryGetModule(out ScenePlayersModule scenePlayersModule, true)) scenePlayersModule.onPlayerLoadedScene += OnPlayerLoadedScene;
     }
-
+    
     public override void Unsubscribe(NetworkManager manager, bool asServer)
     {
         if (asServer && manager.TryGetModule(out ScenePlayersModule scenePlayersModule, true)) scenePlayersModule.onPlayerLoadedScene -= OnPlayerLoadedScene;
     }
-
+    
     private void OnPlayerLoadedScene(PlayerID player, SceneID scene, bool asServer)
     {
         if (!NetworkManager.main.TryGetModule(out ScenesModule scenes, true))
             return;
-
+    
         var unityScene = gameObject.scene;
             
         if (!scenes.TryGetSceneID(unityScene, out var sceneID))
@@ -42,9 +42,9 @@ public class NetworkPlayerSpawner : PurrMonoBehaviour
         
        SpawnLane();
     }
-
+    
     private void Start() => gm = GameManager.Instance;
-
+    
     public void SpawnPlayer()
     {
             int ActivePlayerCount = gm.ActivePlayers.Count;
@@ -55,7 +55,6 @@ public class NetworkPlayerSpawner : PurrMonoBehaviour
             gm.ActivePlayers.Add(PlayerObject);
             for (int j = 0; j < gm.PlayerLanes[ActivePlayerCount].transform.childCount; j++)
             {
-                Debug.Log("Readying you up!");
                 PlayerObject.GetComponent<PlayerController>().PlayerPositions.Add(GameManager.Instance.PlayerLanes[ActivePlayerCount].transform.GetChild(j).transform); //Broken
             }
     }
