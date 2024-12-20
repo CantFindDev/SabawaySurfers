@@ -12,9 +12,6 @@ public class NetworkPlayerSpawner : PurrMonoBehaviour
 
     public override void Subscribe(NetworkManager manager, bool asServer)
     {
-        if (!asServer)
-            return;
-
         if (asServer && manager.TryGetModule(out ScenePlayersModule scenePlayersModule, true)) scenePlayersModule.onPlayerLoadedScene += OnPlayerLoadedScene;
     }
 
@@ -34,9 +31,6 @@ public class NetworkPlayerSpawner : PurrMonoBehaviour
             return;
             
         if (sceneID != scene)
-            return;
-
-        if (!asServer)
             return;
         
         bool isDestroyOnDisconnectEnabled = NetworkManager.main.networkRules.ShouldDespawnOnOwnerDisconnect();
@@ -61,7 +55,8 @@ public class NetworkPlayerSpawner : PurrMonoBehaviour
             gm.ActivePlayers.Add(PlayerObject);
             for (int j = 0; j < gm.PlayerLanes[ActivePlayerCount].transform.childCount; j++)
             {
-                PlayerObject.GetComponent<PlayerController>().PlayerPositions.Add(gm.PlayerLanes[ActivePlayerCount].transform.GetChild(j).transform);
+                Debug.Log("Readying you up!");
+                PlayerObject.GetComponent<PlayerController>().PlayerPositions.Add(GameManager.Instance.PlayerLanes[ActivePlayerCount].transform.GetChild(j).transform); //Broken
             }
     }
     

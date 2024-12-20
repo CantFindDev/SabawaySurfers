@@ -5,7 +5,7 @@ using PurrNet;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : NetworkBehaviour
 {
    private void Awake()
    {
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
    }
    public static GameManager Instance;
    
-   public bool GameStarted = false;
+   public SyncVar<bool> GameStarted =new( false,ownerAuth:false);
    public float GameSpeed { get; private set;} = 10;
    public float MaximumGameSpeed { get; private set;} = 0.1f;
    [SerializeField] private float GameSpeedIncreaseRate = 0.1f;
@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
    public Transform IdealCameraPosition, BeanBestView;
    public GameObject PlayerPrefab;
    public GameObject PlayerLanePrefab;
-   public List<GameObject> ActivePlayers = new List<GameObject>();
-   public List<GameObject> PlayerLanes = new List<GameObject>();
+   public List<GameObject> ActivePlayers;
+   public List<GameObject> PlayerLanes;
 
    private void Update()
     {
@@ -47,9 +47,7 @@ public class GameManager : MonoBehaviour
    
     public void StartGame()
     {
-        GameStarted = ActivePlayers.Count == 2;
-        QualitySettings.vSyncCount = 0; // Set vSyncCount to 0 so that using .targetFrameRate is enabled.
-        Application.targetFrameRate = 60;
+        GameStarted.value = ActivePlayers.Count == 2;
     }
    
 }

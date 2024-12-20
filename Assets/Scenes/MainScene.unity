@@ -171,7 +171,7 @@ MonoBehaviour:
   _dontDestroyOnLoad: 1
   _transport: {fileID: 240591211}
   _networkPrefabs: {fileID: 11400000, guid: 422b56ea62f3d4cefa0984a235edc27c, type: 2}
-  _networkRules: {fileID: 11400000, guid: d8799083b96579a42b8b2d03e4ceae98, type: 2}
+  _networkRules: {fileID: 11400000, guid: 57ad4cc976c21074181652c4f7179d44, type: 2}
   _visibilityRules: {fileID: 11400000, guid: 8f014a5bd8dc68646a2a3c0b18c5bbd8, type: 2}
   _tickRate: 120
 --- !u!4 &240591213
@@ -415,7 +415,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc665318965621a449f8d0ee8c149ca7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameStarted: 0
+  _networkRules: {fileID: 0}
+  _visitiblityRules: {fileID: 0}
+  GameStarted:
+    _value: 0
+    _ownerAuth: 1
+    _sendIntervalInSeconds: 0
   GameSpeedIncreaseRate: 0.1
   MaxSectionCount: 3
   IdealCameraPosition: {fileID: 0}

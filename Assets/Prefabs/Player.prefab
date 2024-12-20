@@ -87,7 +87,9 @@ MonoBehaviour:
   PlayerMoveDuration: 0.2
   PlayerJumpHeight: 8
   PlayerFallMultiplier: 2.5
-  PlayerPositions: []
+  PlayerPositions:
+    _ownerAuth: 0
+    _list: []
 --- !u!65 &3295266514117470678
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -198,6 +200,7 @@ MonoBehaviour:
   _toDeactivate: []
   _toEnable:
   - {fileID: 3751737744625548367}
+  - {fileID: 1812248648168760008}
   _toDisable: []
 --- !u!1 &212975226691020586
 GameObject:

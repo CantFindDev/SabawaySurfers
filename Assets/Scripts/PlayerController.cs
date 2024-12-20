@@ -21,8 +21,8 @@ public class PlayerController : NetworkBehaviour
     private InputAction TurnAction;
     private InputAction JumpAction;
     private InputAction SlideAction;
-
-    public List<Transform> PlayerPositions = new List<Transform>();
+    
+    public SyncList<Transform> PlayerPositions = new(false);
 
     private Rigidbody RB;
 

@@ -85,7 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1568495639060958396}
-  - component: {fileID: 1965186065564485288}
+  - component: {fileID: 7718127689896509077}
   m_Layer: 0
   m_Name: Lane2Position
   m_TagString: Untagged
@@ -108,7 +108,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3804273589597529468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1965186065564485288
+--- !u!114 &7718127689896509077
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,22 +117,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4643432090516128168}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 817fe5016bd0a2a49a95b6eb338bb132, type: 3}
+  m_Script: {fileID: 11500000, guid: 5681fe548eb84304ea28a286062791f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _networkRules: {fileID: 0}
   _visitiblityRules: {fileID: 0}
-  _syncPosition: 1
-  _syncRotation: 1
-  _syncScale: 1
-  _syncParent: 1
-  _interpolateSettings: 7
-  _ownerAuth: 1
-  _sendIntervalInTicks: 0
-  _tolerances:
-    positionTolerance: 0.1
-    rotationAngleTolerance: 1
-    scaleTolerance: 0.05
 --- !u!1 &5154632120941162909
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2385269960752235079}
-  - component: {fileID: 1888024981529058141}
+  - component: {fileID: 5190867338436351968}
   m_Layer: 0
   m_Name: Lane1Position
   m_TagString: Untagged
@@ -165,7 +154,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3804273589597529468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1888024981529058141
+--- !u!114 &5190867338436351968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,22 +163,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5154632120941162909}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 817fe5016bd0a2a49a95b6eb338bb132, type: 3}
+  m_Script: {fileID: 11500000, guid: 5681fe548eb84304ea28a286062791f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _networkRules: {fileID: 0}
   _visitiblityRules: {fileID: 0}
-  _syncPosition: 1
-  _syncRotation: 1
-  _syncScale: 1
-  _syncParent: 1
-  _interpolateSettings: 7
-  _ownerAuth: 1
-  _sendIntervalInTicks: 0
-  _tolerances:
-    positionTolerance: 0.1
-    rotationAngleTolerance: 1
-    scaleTolerance: 0.05
 --- !u!1 &8325930004631665313
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5221660573129718462}
-  - component: {fileID: 960433628631353103}
+  - component: {fileID: 5962041589348983452}
   m_Layer: 0
   m_Name: Lane3Position
   m_TagString: Untagged
@@ -222,7 +200,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3804273589597529468}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &960433628631353103
+--- !u!114 &5962041589348983452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -231,19 +209,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8325930004631665313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 817fe5016bd0a2a49a95b6eb338bb132, type: 3}
+  m_Script: {fileID: 11500000, guid: 5681fe548eb84304ea28a286062791f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _networkRules: {fileID: 0}
   _visitiblityRules: {fileID: 0}
-  _syncPosition: 1
-  _syncRotation: 1
-  _syncScale: 1
-  _syncParent: 1
-  _interpolateSettings: 7
-  _ownerAuth: 1
-  _sendIntervalInTicks: 0
-  _tolerances:
-    positionTolerance: 0.1
-    rotationAngleTolerance: 1
-    scaleTolerance: 0.05
